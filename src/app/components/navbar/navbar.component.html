@@ -1,9 +1,16 @@
-<nav>
+<nav [class.nav-open]="isMenuOpen">
   <img src="logo.png" alt="xícara com um rosto amigavel" class="logo">
+
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
   <div class="links">
     <ul>
       <li><a href="#catalogue" (click)="onLinkClick($event, '#catalogue')">Catalogue</a></li>
-      <li><a href="#testimonial "(click)="onLinkClick($event, '#testimonial')">Testimonial</a></li>
+      <li><a href="#testimonial" (click)="onLinkClick($event, '#testimonial')">Testimonial</a></li>
       <li><a href="#contact" (click)="onLinkClick($event, '#contact')">Contact</a></li>
     </ul>
     <button>Log in</button>

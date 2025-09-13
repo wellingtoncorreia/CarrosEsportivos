@@ -1,24 +1,31 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { ScrollService } from '../../model/services/scroll.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
-  providers:[ScrollService],
+  imports: [CommonModule], 
+  providers: [ScrollService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-// Injete o serviço no construtor
-  constructor(private scrollService: ScrollService) {} 
- 
-  // Método que será chamado pelo clique
+  isMenuOpen = false;
+
+  constructor(private scrollService: ScrollService) {}
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
   onLinkClick(event: Event, targetId: string): void {
-    // Previne o comportamento padrão de "salto" do link
-    event.preventDefault(); 
-    
-    // Chama o serviço para fazer a rolagem suave
+    event.preventDefault();
     this.scrollService.scrollTo(targetId);
+
+    // Fecha o menu se estiver aberto (importante para mobile)
+    if (this.isMenuOpen) {
+      this.toggleMenu();
+    }
   }
 }
