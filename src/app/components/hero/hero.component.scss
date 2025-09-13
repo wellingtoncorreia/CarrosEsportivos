@@ -1,0 +1,166 @@
+/* Importando uma fonte do Google Fonts para um visual mais moderno (opcional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+/* --- Coluna de Texto --- */
+.text-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.pre-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.main-title {
+  font-size: 64px;
+  font-weight: 900;
+  color: #D52222; /* Vermelho forte */
+  line-height: 1.1;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 450px;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 50px; /* Bordas bem arredondadas */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-buy {
+  background-color: #D52222;
+  color: white;
+}
+
+.btn-buy:hover {
+  background-color: #b01a1a;
+}
+
+.btn-browse {
+  background-color: white;
+  color: #111;
+  border: 2px solid #111;
+}
+
+.btn-browse:hover {
+  background-color: #111;
+  color: white;
+}
+
+/* --- Coluna da Imagem --- */
+.image-content {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
+  /* Efeito de sombra sutil para destacar a imagem */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.color-chooser {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+  color: #333;
+  font-weight: 700;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.color-dot.selected {
+  border-color: #555; /* Borda para indicar seleção */
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-content {
+    max-width: 100%;
+  }
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button-group {
+    justify-content: center;
+  }
+  .image-content {
+    align-items: center;
+    margin-top: 30px;
+  }
+  .color-chooser {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 48px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+}

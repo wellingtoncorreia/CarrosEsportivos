@@ -1,0 +1,57 @@
+<section class="card-container">
+  <h1 class="card-title">
+    EXCLUSIVE SPORTS CAR
+  </h1>
+  <div class="car-list">
+    <div class="car-card" *ngFor="let car of cars">
+      <div class="car-image-wrapper">
+        <img [src]="car.image" [alt]="car.name">
+      </div>
+      
+      <div class="car-details">
+        <h2>{{ car.name }}</h2>
+        
+        <div class="rating-reviews" *ngIf="car.rating && car.reviews">
+          <span class="stars">
+            <ng-container *ngFor="let star of [].constructor(5); let i = index">
+              <span class="star-icon" [class.filled]="i < car.rating">&#9733;</span>
+            </ng-container>
+          </span>
+          <span class="reviews">({{ car.reviews }} reviews)</span>
+        </div>
+
+        <div class="car-features">
+          <div class="feature-item">
+            <lucide-icon name="users"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Assentos') }} Seat</span>
+          </div>
+          <div class="feature-item">
+            <lucide-icon name="calendar"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Ano') }}</span>
+          </div>
+          <div class="feature-item">
+            <lucide-icon name="fuel"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Combustível') }}</span>
+          </div>
+          <div class="feature-item">
+            <lucide-icon name="door-open"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Portas') }} Door</span>
+          </div>
+          <div class="feature-item">
+            <lucide-icon name="user"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Passageiros') }} Person</span>
+          </div>
+          <div class="feature-item">
+            <lucide-icon name="gauge"></lucide-icon>
+            <span>{{ getCarProperty(car, 'Quilometragem') }}</span>
+          </div>
+        </div>
+
+        <div class="car-footer">
+          <p class="price">{{ car.price }}</p>
+          <button class="rent-button" (click)="showCarDetails(car)">See More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<main class="Testemunho-container">
+  <h1 class="Testemunho-title">VEJA ESSES DEPOIMENTOS</h1>
+
+  <swiper-container
+    slides-per-view="1"
+    space-between="20"
+    pagination="true"
+    pagination-clickable="true"
+    autoplay-delay="3000"
+    autoplay-disable-on-interaction="false"
+    loop="true"
+    
+    [breakpoints]="{
+      '400': { slidesPerView: 1 },
+      '600': { slidesPerView: 2 },
+      '1800': { slidesPerView: 3 }
+    }"
+  >
+    <swiper-slide *ngFor="let t of testemunhos" class="Testemunho-slide">
+      <div class="stars">
+        <ng-container *ngFor="let _ of getStars(t.rating)">
+          <lucide-icon
+            name="star"
+            class="star-icon"
+            [fill]="'#facc15'"
+          ></lucide-icon>
+        </ng-container>
+      </div>
+
+      <p class="Testemunho-text">"{{ t.text }}"</p>
+
+      <div class="Testemunho-author">
+        <img [src]="t.avatar" [alt]="t.name" class="author-avatar" />
+        <div>
+          <h4 class="author-name">{{ t.name }}</h4>
+          <p class="author-since">{{ t.since }}</p>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</main>

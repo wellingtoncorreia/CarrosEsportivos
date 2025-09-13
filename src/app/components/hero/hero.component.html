@@ -1,0 +1,34 @@
+<div class="hero-container">
+  <div class="text-content">
+    <p class="pre-title">HOT ON THE LOT</p>
+    <h1 class="main-title">
+      EXCLUSIVE<br>SPORTS CAR
+    </h1>
+    <h2 class="subtitle">Advanced Sport Car Features</h2>
+    <p class="description">
+      Experience the thrill of innovation with advanced sport car features designed
+      for speed, control, and pure driving pleasure.
+    </p>
+    <div class="button-group">
+      <button class="btn btn-buy">Buy Now</button>
+      <button class="btn btn-browse">Browse Cars</button>
+    </div>
+  </div>
+
+  <div class="image-content">
+    <img [src]="carImageUrl" alt="Red exclusive sports car">
+    
+    <div class="color-chooser">
+      <span>Choose Color:</span>
+      <div class="color-options">
+        <div 
+          *ngFor="let color of availableColors"
+          class="color-dot"
+          [style.backgroundColor]="color.hex"
+          [class.selected]="color.name === selectedColor.name"
+          (click)="selectColor(color)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
